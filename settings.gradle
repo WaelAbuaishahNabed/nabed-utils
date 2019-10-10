@@ -1,2 +1,2 @@
-include ':app', ':nabedutilslibrary'
+include ':app', ':nabedutilslibrary', ':service'
 rootProject.name='NabedUtils'

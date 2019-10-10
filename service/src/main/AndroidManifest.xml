@@ -1,10 +1,2 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nabed.apps.nabedutilslibrary" >
-
-
-
-
-
-
-
-</manifest>
+    package="nabed.apps.service" />

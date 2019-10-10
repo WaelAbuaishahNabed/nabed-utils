@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">NabedUtilsLibrary</string>
-    <string name="sorry">Sorry</string>
-    <string name="userExpiredMessage">You are not autherized to use this product, please contact Nabed admin for more information.</string>
-    <string name="ok">Ok</string>
+    <string name="app_name">NabedUtils</string>
+    <string name="item_tag">item_tag</string>
+    <string name="video">video</string>
 </resources>
