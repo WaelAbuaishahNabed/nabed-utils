@@ -11,8 +11,9 @@ import java.util.*
 
 
 class ActivityLifecycleManager(context: Context) {
-    private val application: Application
+    private val application: Application = context.applicationContext as Application
     private var callbacksWrapper: ActivityLifecycleCallbacksWrapper? = null
+
     fun registerCallbacks(callbacks: Callbacks): Boolean {
         return callbacksWrapper != null && callbacksWrapper!!.registerLifecycleCallbacks(
             callbacks
@@ -109,7 +110,6 @@ class ActivityLifecycleManager(context: Context) {
     }
 
     init {
-        application = context.applicationContext as Application
         if (VERSION.SDK_INT >= 14) {
             callbacksWrapper =
                 ActivityLifecycleCallbacksWrapper(application)
