@@ -2,11 +2,8 @@ package nabed.apps.nabedutils
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.annotation.IdRes
-import androidx.annotation.Nullable
-import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
-import nabed.apps.nabedutilslibrary.views.prescriptions.NabedCategoriesView
+//import nabed.apps.nabedutilslibrary.views.prescriptions.NabedCategoriesView
 
 class MainActivity : AppCompatActivity() {
 
