@@ -1,11 +1,4 @@
-package nabed.apps.nabedutilslibrary.views.prescriptions.utils
-
-import android.content.Context
-import android.view.View
-import android.widget.TextView
-import nabed.apps.nabedutilslibrary.R
-import nabed.apps.service.models.DoctorContent
-import nabed.apps.service.models.Feed
+package nabed.apps.nabedutilslibrary.ui.prescriptions.utils
 
 
 //class FeedSelfSelectHolder(view: View, clickListener: View.OnClickListener?) : DoctorChannelsHolder(view, clickListener) {

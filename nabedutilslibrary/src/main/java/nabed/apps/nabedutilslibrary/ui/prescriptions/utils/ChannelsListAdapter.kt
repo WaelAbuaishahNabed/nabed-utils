@@ -1,4 +1,4 @@
-package nabed.apps.nabedutilslibrary.views.prescriptions.utils
+package nabed.apps.nabedutilslibrary.ui.prescriptions.utils
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,13 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import nabed.apps.nabedutilslibrary.R
+import nabed.apps.nabedutilslibrary.data.db.entity.PrescriptionEntry
 import nabed.apps.nabedutilslibrary.interfaces.OnChannelsDetailesInterface
 import nabed.apps.nabedutilslibrary.utils.Constants
 import nabed.apps.service.models.DoctorContent
 import nabed.apps.service.models.Feed
 
 class ChannelsListAdapter(
-    private val items: ArrayList<Feed>,
+    private val items: ArrayList<PrescriptionEntry>,
     private val context: Context,
     private val onActionInterface: OnChannelsDetailesInterface,
     private var doctorContent: DoctorContent
@@ -66,11 +67,11 @@ class ChannelsListAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return if (items.size > 0) {
-            if (items[position].id?.toInt() == -123) {
-                Constants.TYPE_SELF_SELECT
-            } else {
+//            if (items[position].id?.toInt() == -123) {
+//                Constants.TYPE_SELF_SELECT
+//            } else {
                 Constants.TYPE_LIST_ITEM
-            }
+//            }
         } else {
             Constants.TYPE_NO_ITEM
         }
@@ -100,7 +101,7 @@ class ChannelsListAdapter(
 
     fun claerIsNew() {
         for (i in 0 until items.size) {
-            items[i].total_unread_count = "0"
+//            items[i].total_unread_count = "0"
             this.notifyItemChanged(i)
         }
     }

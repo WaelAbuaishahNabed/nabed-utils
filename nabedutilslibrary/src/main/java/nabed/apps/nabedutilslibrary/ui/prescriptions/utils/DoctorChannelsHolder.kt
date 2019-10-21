@@ -1,4 +1,4 @@
-package nabed.apps.nabedutilslibrary.views.prescriptions.utils
+package nabed.apps.nabedutilslibrary.ui.prescriptions.utils
 
 import android.content.Context
 import android.content.res.Resources
@@ -6,13 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import nabed.apps.nabedutilslibrary.R
+import nabed.apps.nabedutilslibrary.data.db.entity.PrescriptionEntry
 import nabed.apps.service.models.DoctorContent
-import nabed.apps.service.models.Feed
 
 
 open class DoctorChannelsHolder(view: View, clickListener: View.OnClickListener?) : RecyclerView.ViewHolder(view) {
@@ -42,10 +41,11 @@ open class DoctorChannelsHolder(view: View, clickListener: View.OnClickListener?
         this.isNew=itemView.findViewById(R.id.isNew)
     }
 
-    open fun onBind(_context: Context,
-                    channelsModel: Feed,
-                    postion: Int,
-                    doctorContent: DoctorContent
+    open fun onBind(
+        _context: Context,
+        channelsModel: PrescriptionEntry,
+        postion: Int,
+        doctorContent: DoctorContent
     ) = with(itemView) {
 
         if (channelsModel != null) {
@@ -55,26 +55,26 @@ open class DoctorChannelsHolder(view: View, clickListener: View.OnClickListener?
             requestOptions.error(R.drawable.image_place_holder_rectangle)
             val radius = ((6 * DP).toInt())
             requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(radius))
-            if (channelsModel!!.media != null && channelsModel!!.media?.images != null && !channelsModel!!.media?.images?.isEmpty()!!) {
-                Glide.with(context).load(channelsModel!!.media!!.images!![0].url).apply(requestOptions).into(image!!)
-            } else if (channelsModel!!.media != null && channelsModel!!.media?.videos != null && !channelsModel!!.media?.videos?.isEmpty()!!) {
-                Glide.with(context).load(channelsModel!!.media!!.videos!![0].thumbnailUrl).apply(requestOptions).into(image!!)
-            }
-            if(channelsModel.contentCountValue is String) {
-                videoCount?.text = channelsModel.contentCountValue.toString() + " " + context.getString(R.string.video)
-            }
-            date?.text=channelsModel!!.categoryHealthCenter?.title
+//            if (channelsModel!!.media != null && channelsModel!!.media?.images != null && !channelsModel!!.media?.images?.isEmpty()!!) {
+//                Glide.with(context).load(channelsModel!!.media!!.images!![0].url).apply(requestOptions).into(image!!)
+//            } else if (channelsModel!!.media != null && channelsModel!!.media?.videos != null && !channelsModel!!.media?.videos?.isEmpty()!!) {
+//                Glide.with(context).load(channelsModel!!.media!!.videos!![0].thumbnailUrl).apply(requestOptions).into(image!!)
+//            }
+//            if(channelsModel.contentCountValue is String) {
+//                videoCount?.text = channelsModel.contentCountValue.toString() + " " + context.getString(R.string.video)
+//            }
+            date?.text=channelsModel!!.title
 
-            if (channelsModel?.type != null &&
-                    channelsModel.type == "broadcast") {
-                isNew?.visibility = View.GONE
-            } else {
-                if(channelsModel.total_unread_count!=null&&channelsModel.total_unread_count!!.toInt()>0){
-                    isNew?.visibility=View.VISIBLE
-                }else{
-                    isNew?.visibility=View.INVISIBLE
-                }
-            }
+//            if (channelsModel?.type != null &&
+////                    channelsModel.type == "broadcast") {
+////                isNew?.visibility = View.GONE
+////            } else {
+////                if(channelsModel.total_unread_count!=null&&channelsModel.total_unread_count!!.toInt()>0){
+////                    isNew?.visibility=View.VISIBLE
+////                }else{
+////                    isNew?.visibility=View.INVISIBLE
+////                }
+////            }
         }
     }
 }
